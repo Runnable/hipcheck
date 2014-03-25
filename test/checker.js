@@ -58,12 +58,16 @@ describe('vhost checking', function() {
         this.apps = [];
         // start apps
         this.apps.push(
-          createAppWithMiddleware(3000, healthyMiddleware)
+          createAppWithMiddleware(3000, timeoutMiddleware)
         );
         this.apps.push(
-          createAppWithMiddleware(3001, healthyMiddleware)
+          createAppWithMiddleware(3001, error500Middleware)
         );
-        function healthyMiddleware (req, res, next) {
+        function timeoutMiddleware (req, res, next) {
+          if (self.serverSpy) self.serverSpy();
+          // timeout..
+        }
+        function error500Middleware (req, res, next) {
           if (self.serverSpy) self.serverSpy();
           res.send(500, 'unhealthy');
         }
