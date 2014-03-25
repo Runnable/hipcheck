@@ -1,0 +1,44 @@
+{
+  "name": "hipcheck",
+  "version": "0.0.0",
+  "description": "Active health checker for hipache proxy written in Node.js. Hipache health-checker will check the backends specified regularly and add/remove them from redis.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Runnable/hipache-health-checker.git"
+  },
+  "keywords": [
+    "hipache",
+    "active",
+    "health",
+    "checker"
+  ],
+  "author": "Tejesh Mehta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Runnable/hipache-health-checker/issues"
+  },
+  "homepage": "https://github.com/Runnable/hipache-health-checker",
+  "dependencies": {
+    "commander": "~2.1.0",
+    "redis": "~0.10.1",
+    "request": "~2.34.0",
+    "correcting-interval": "~1.0.4",
+    "clone": "~0.1.11",
+    "lodash": "~2.4.1",
+    "callback-count": "~0.1.0",
+    "rollbar": "~0.3.2"
+  },
+  "devDependencies": {
+    "should": "~3.2.0-beta1",
+    "mocha": "~1.18.2",
+    "express": "~3.5.0",
+    "callback-count": "~0.1.0"
+  },
+  "directories": {
+    "test": "test"
+  }
+}
