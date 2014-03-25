@@ -1,4 +1,4 @@
-hipache-health-checker
+hipcheck
 ======================
 
-configurable hipache health checker written in node
+configurable hip ache active health checker written in node
