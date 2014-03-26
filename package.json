@@ -7,7 +7,7 @@
     "test": "mocha"
   },
    "bin": {
-    "hipcheck": "./bin/hipcheck",
+    "hipcheck": "./bin/hipcheck"
   },
   "repository": {
     "type": "git",
