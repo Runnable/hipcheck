@@ -6,6 +6,9 @@
   "scripts": {
     "test": "mocha"
   },
+   "bin": {
+    "hipcheck": "./bin/hipcheck",
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Runnable/hipache-health-checker.git"
