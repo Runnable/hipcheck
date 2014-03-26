@@ -18,6 +18,8 @@ var throwError = require('../lib/throwError');
 var clone = require('clone');
 var VhostChecker = require('../lib/VhostChecker');
 
+var Hipcheck = require('../lib/Hipcheck');
+
 program
   .version(pkg.version)
   .usage('[options] <url ...>')
@@ -42,74 +44,14 @@ program
 
 program.parse(process.argv);
 
-// Defaults
-var defaults = {
-  dryrun          : false,
-  method          : 'GET',
-  expected_status : 200,
-  timeout         : 3,
-  interval        : 3,
-  hosts_check_interval: 3,
-  redis           : '127.0.0.1:6379'
-};
-Object.keys(defaults).forEach(function (key) {
-  program[key] = program[key] || defaults[key];
-});
-
 program.url = program.args[0];
 
-if (!program.url) {
-  throwError('Missing argument "url"',
-    new Error('Missing argument "url"'));
-}
-else if (!~program.url.indexOf('//')) {
-  throwError('"url" must include protocol (eg. http://)',
-    new Error('"url" must include protocol (eg. http://)'));
-}
+var hipcheck = new Hipcheck(program);
 
-// Intervals to milliseconds
-program.timeout *= 1000;
-program.interval *= 1000;
-program.hosts_check_interval *= 1000;
-
-// Init Rollbar
-
-if (program.rollbar) {
-  var rollbar = require('rollbar');
-  rollbar.init(program.rollbar);
-}
-
-// Init Redis
-var redisHostSplit = program.redis.split(':');
-program.redisHostname = redisHostSplit[0];
-program.redisPort = redisHostSplit[1] || '6379';
-var redisPassword = program.redis_password;
-program.redisOpts = program.redis_password ?
-  { auth_pass: program.redis_password } : {};
-var redis = redis.createClient(program.redisPort, program.redisHostname, program.redisOpts);
-
-redis.on('error', throwError.bind(null, 'Redis Connection Error'));
-
-var vhostChecker = new VhostChecker(program);
-
-vhostChecker.on('error', function (err, source) {
-  console.error(err);
-  if (program.rollbar) {
-    rollbar.handleError(err);
-  }
-});
-vhostChecker.on('warn', function (message, source) {
-  console.log(message);
-  if (program.rollbar) {
-    rollbar.reportMessage(err, 'warn');
-  }
-});
-vhostChecker.on('log', function (message, source) {
-  console.log(message);
-});
-
-// Start vhostChecker on Redis Connect
-redis.on('connect', vhostChecker.start.bind(vhostChecker));
+// Start
+hipcheck.start();
 
 // End on Process Exit
-process.on('exit', vhostChecker.stop.bind(vhostChecker));
+process.on('exit', function () {
+  hipcheck.stop();
+});
