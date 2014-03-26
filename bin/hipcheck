@@ -27,13 +27,13 @@ program
   //   'Enable dryrun (health check simulation). Default: false')
   .option('-m, --method',
     'URL Method to health check eg. GET. Default: GET')
-  .option('-s, --expected_status',
+  .option('-s, --expect_status',
     'Expected response status code. Default: 200')
   .option('-t, --timeout <n>',
     'Max timeout in seconds for a healthy response. Default: 3', parseFloat)
   .option('-i, --interval <n>',
     'Interval in seconds of how often to ping the domain. Default: 3', parseFloat)
-  .option('-c, --hosts_check_interval <n>',
+  .option('-c, --hosts_interval <n>',
     'Interval in seconds of how often to check for host changes. Default: 3', parseFloat)
   .option('-r, --redis',
     "Hipache's redis host (hostname:port). Default: localhost:6379")

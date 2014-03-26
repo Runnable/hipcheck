@@ -47,7 +47,7 @@ describe('unhealthy', function() {
       var opts = {
         timeout: 0.10,
         interval: 0.10,
-        hosts_check_interval: 1
+        hosts_interval: 1
       };
       var self = this;
       this.hipcheck = startHipcheck(opts, 'http://'+this.vhost);

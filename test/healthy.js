@@ -43,7 +43,7 @@ describe('healthy', function() {
     var opts = {
       timeout: 0.10,
       interval: 0.10,
-      hosts_check_interval: 1
+      hosts_interval: 1
     };
     this.hipcheck = startHipcheck(opts, 'http://'+this.vhost);
   });
@@ -53,7 +53,7 @@ describe('healthy', function() {
     var opts = {
       timeout: 0.10,
       interval: 0.10,
-      hosts_check_interval: 0.20
+      hosts_interval: 0.20
     };
     var self = this;
     this.hipcheck = startHipcheck(opts, 'http://'+this.vhost);
@@ -69,7 +69,7 @@ describe('healthy', function() {
           done(new Error('got heartbeat on delisted'));
           done = noop;
         };
-        setTimeout(done, opts.hosts_check_interval*4); // wait another interval
+        setTimeout(done, opts.hosts_interval*4); // wait another interval
       }, opts.interval*2); // wait full two interval to ensure no inprogress heartbeat
     }
   });
