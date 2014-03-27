@@ -45,7 +45,7 @@ program
     "Disk location where to cache. Flag.")
   .option('-f, --delete-cache',
     "Delete cache (reset cached hosts). Flag.")
-  .option('-e, --rollbar_token <s>',
+  .option('-e, --rollbar <s>',
     "Rollbar token for error tracking");
 
 program.parse(process.argv);

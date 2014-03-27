@@ -20,5 +20,5 @@ configurable hip ache active health checker written in node
     -p, --redis_password     Hipache's redis database password
     -c, --cache              Disk location where to cache
     -d, --delete-cache       Delete cache (reset cached hosts)
-    -e, --rollbar_token      Rollbar token for error tracking
+    -e, --rollbar            Rollbar token for error tracking
 ```
