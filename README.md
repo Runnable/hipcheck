@@ -9,6 +9,7 @@ configurable hip ache active health checker written in node
   Options:
 
     -h, --help               output usage information
+    -d, --dryrun             Enable dryrun (health check simulation). Flag.
     -V, --version            output the version number
     -m, --method             URL Method to health check eg. GET. Default: GET
     -s, --expect_status      Expected response status code. Default: 200
