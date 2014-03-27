@@ -39,6 +39,12 @@ program
     "Hipache's redis host (hostname:port). Default: localhost:6379")
   .option('-p, --redis_password',
     "Hipache's redis database password")
+  .option('-c, --cache_path',
+    "Disk location where to cache. Default: $HOME/.hipcheck")
+  .option('-n, --no-cache',
+    "Disk location where to cache. Default: false")
+  .option('-d, --delete-cache',
+    "Delete cache (reset cached hosts). Default: false")
   .option('-e, --rollbar_token',
     "Rollbar token for error tracking");
 

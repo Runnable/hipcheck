@@ -34,7 +34,11 @@
     "callback-count": "~0.1.0",
     "rollbar": "~0.3.2",
     "camelize": "~0.1.2",
-    "defaults": "~1.0.0"
+    "defaults": "~1.0.0",
+    "level": "~0.18.0",
+    "fn-object": "~0.2.2",
+    "map-utils": "~0.4.0",
+    "level-sublevel": "~5.2.0"
   },
   "devDependencies": {
     "should": "~3.2.0-beta1",
