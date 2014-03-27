@@ -23,29 +23,29 @@ var Hipcheck = require('../lib/Hipcheck');
 program
   .version(pkg.version)
   .usage('[options] <url ...>')
-  // .option('-d, --dryrun',
-  //   'Enable dryrun (health check simulation). Default: false')
-  .option('-m, --method',
+  .option('-d, --dryrun',
+    'Enable dryrun (health check simulation). Flag.')
+  .option('-m, --method <s>',
     'URL Method to health check eg. GET. Default: GET')
-  .option('-s, --expect_status',
-    'Expected response status code. Default: 200')
+  .option('-s, --expect_status <n>',
+    'Expected response status code. Default: 200', parseInt)
   .option('-t, --timeout <n>',
     'Max timeout in seconds for a healthy response. Default: 3', parseFloat)
   .option('-i, --interval <n>',
     'Interval in seconds of how often to ping the domain. Default: 3', parseFloat)
-  .option('-c, --hosts_interval <n>',
+  .option('-h, --hosts_interval <n>',
     'Interval in seconds of how often to check for host changes. Default: 3', parseFloat)
-  .option('-r, --redis',
+  .option('-r, --redis <s>',
     "Hipache's redis host (hostname:port). Default: localhost:6379")
-  .option('-p, --redis_password',
+  .option('-p, --redis_password <s>',
     "Hipache's redis database password")
-  .option('-c, --cache_path',
+  .option('-c, --cache_path <s>',
     "Disk location where to cache. Default: $HOME/.hipcheck")
   .option('-n, --no-cache',
-    "Disk location where to cache. Default: false")
-  .option('-d, --delete-cache',
-    "Delete cache (reset cached hosts). Default: false")
-  .option('-e, --rollbar_token',
+    "Disk location where to cache. Flag.")
+  .option('-f, --delete-cache',
+    "Delete cache (reset cached hosts). Flag.")
+  .option('-e, --rollbar_token <s>',
     "Rollbar token for error tracking");
 
 program.parse(process.argv);

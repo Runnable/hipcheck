@@ -17,7 +17,9 @@ module.exports = function (opts, url) {
 function optsToArgs (opts) {
   return Object.keys(opts).reduce(function (arr, key) {
     arr.push('--'+key);
-    arr.push(opts[key]);
+    if (opts[key] !== true) {
+      arr.push(opts[key]);
+    }
     return arr;
   }, []);
 }
