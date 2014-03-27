@@ -8,7 +8,7 @@ module.exports = function (opts, url) {
   }
   var args = optsToArgs(opts).concat(url || []);
   var cwd = path.resolve(__dirname, '..', '..', 'bin');
-  var hipcheck = spawn('hipcheck', args, { cwd: cwd });
+  var hipcheck = spawn('./hipcheck', args, { cwd: cwd });
   hipcheck.stdout.pipe(process.stdout);
   hipcheck.stderr.pipe(process.stdout);
   return hipcheck;
