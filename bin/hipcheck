@@ -32,7 +32,7 @@ program
   .option('-t, --timeout <n>',
     'Max timeout in seconds for a healthy response. Default: 3', parseFloat)
   .option('-i, --interval <n>',
-    'Interval in seconds of how often to ping the domain. Default: 3', parseFloat)
+    'Interval in seconds of how often to ping the domain (not concurrent, waits for response). Default: 3', parseFloat)
   .option('-h, --hosts_interval <n>',
     'Interval in seconds of how often to check for host changes. Default: 3', parseFloat)
   .option('-r, --redis <s>',
