@@ -104,7 +104,7 @@ describe('unhealthy', function() {
       this.backendHosts.destroy(done);
     });
 
-    it('should delist backends that fail (but still try to bring them back)', function(done) {
+    it('should recover backends that fail and later succeed', function(done) {
       var count = createCount(4, checkHosts); // 4 counts to give it some time to delist
       this.serverSpy = count.next.bind(count);
       var opts = {
