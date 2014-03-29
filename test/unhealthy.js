@@ -77,7 +77,6 @@ describe('unhealthy', function() {
       );
       function timeoutMiddleware (req, res, next) {
         if (self.serverSpy) self.serverSpy();
-        console.log('time out fixed you', self.fixed);
         if (self.fixed) {
           res.send(200);
         }
