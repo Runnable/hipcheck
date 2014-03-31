@@ -1,7 +1,7 @@
 hipcheck [![Build Status](https://travis-ci.org/runnable/hipcheck.png)](https://travis-ci.org/runnable/hipcheck)
 ======================
 
-configurable hip ache active health checker written in node
+configurable [hipache](https://github.com/dotcloud/hipache) active health checker written in node
 
 ## Installation
 
