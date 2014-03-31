@@ -38,7 +38,7 @@ program
   .option('-r, --redis <s>',
     "Hipache's redis host (hostname:port). Default: localhost:6379")
   .option('-p, --redis_password <s>',
-    "Hipache's redis database password")
+    "Hipache's redis database password. Default: undefined")
   .option('-c, --cache_path <s>',
     "Disk location where to cache. Default: $HOME/.hipcheck")
   .option('-n, --no-cache',
@@ -46,7 +46,7 @@ program
   .option('-f, --delete-cache',
     "Delete cache (reset cached hosts). Flag.")
   .option('-e, --rollbar <s>',
-    "Rollbar token for error tracking");
+    "Rollbar token for error tracking. Default: undefined");
 
 program.parse(process.argv);
 
