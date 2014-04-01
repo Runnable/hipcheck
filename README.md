@@ -1,4 +1,4 @@
-hipcheck [![Build Status](https://travis-ci.org/runnable/hipcheck.png)](https://travis-ci.org/runnable/hipcheck)
+hipcheck [![Build Status](https://travis-ci.org/Runnable/hipcheck.png)](https://travis-ci.org/Runnable/hipcheck)
 ======================
 
 configurable [hipache](https://github.com/dotcloud/hipache) active health checker written in node
