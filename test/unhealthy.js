@@ -126,7 +126,7 @@ describe('unhealthy', function() {
       function recoverHosts (err) {
         if (err) return done(err);
         self.fixed = true;
-        var count3 = createCount(4, verifyRecovered); // fix it and give it a few heartbeats to set redis
+        var count3 = createCount(6, verifyRecovered); // fix it and give it a few heartbeats to set redis
         self.serverSpy = count3.next.bind(count3);
       }
       function verifyRecovered (err) {
