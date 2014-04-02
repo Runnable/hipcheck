@@ -47,7 +47,7 @@ describe('unhealthy', function() {
       var opts = {
         timeout: 0.10,
         interval: 0.10,
-        hosts_interval: 1
+        hosts_interval: 0.05 // when this is less than the interval it ensures that delisted docks are not stopped
       };
       var self = this;
       this.hipcheck = startHipcheck(opts, 'http://'+this.vhost);
@@ -110,7 +110,7 @@ describe('unhealthy', function() {
       var opts = {
         timeout: 0.10,
         interval: 0.10,
-        hosts_interval: 1
+        hosts_interval: 0.05 // when this is less than the interval it ensures that delisted docks are not stopped
       };
       var self = this;
       this.hipcheck = startHipcheck(opts, 'http://'+this.vhost);
