@@ -1,6 +1,6 @@
 {
   "name": "hipcheck",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Active health checker for hipache proxy written in Node.js. Hipache health-checker will check the backends specified regularly and add/remove them from redis.",
   "main": "index.js",
   "scripts": {
